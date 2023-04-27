@@ -1,0 +1,35 @@
+version: '3'
+services:
+  php:
+    build:
+      context: ./docker/php/
+    volumes:
+      - './src:/var/www/html'
+      - './php/php.ini:/usr/local/etc/php/php.ini'
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - './src:/var/www/html'
+      - './docker/nginx/conf.d:/etc/nginx/conf.d'
+
+  mysql:
+    build:
+      context: ./docker/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+
+    volumes:
+      - './docker/volume/mysql:/var/lib/mysql'
+      - './docker/mysql/conf.d/config-file.cnf:/etc/mysql/conf.d/config-file.cnf'
+      # - './mysql/log/:/var/log/mysql/'
+
+  adminer:
+    image: adminer
+    environment: 
+            ADMINER_DEFAULT_SERVER: mysql
+    restart: always
+    ports:
+      - 8080:8080
