@@ -1,2 +1,2 @@
 .vscode
-.docker/volume/mysql/
+docker/volume/mysql/*

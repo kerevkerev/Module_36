@@ -1,8 +1,8 @@
 # Base image
 FROM mysql:8
 
-# # Copy starting scripts file
-# COPY start.sh /root/start.sh
+# COPY conf.d/config-file.cnf /etc/mysql/my.cnf
 
-# # Run necessary services
-# CMD ["/bin/bash", "/root/start.sh"]
+# RUN chown mysql:mysql /etc/mysql/my.cnf
+
+# RUN chmod 600 /etc/mysql/my.cnf
