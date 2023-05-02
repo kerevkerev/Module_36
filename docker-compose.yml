@@ -23,7 +23,7 @@ services:
 
     volumes:
       - './docker/volume/mysql:/var/lib/mysql'
-      - './docker/mysql/conf.d/config-file.cnf:/etc/mysql/my.cnf:ro'
+      # - './docker/mysql/conf.d/config-file.cnf:/etc/mysql/my.cnf:ro'
       # - './mysql/log/:/var/log/mysql/'
 
   adminer:
