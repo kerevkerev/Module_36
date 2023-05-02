@@ -1,3 +1,6 @@
 [mysqld]
-admin_addressфф=127.0.0.111
+
+admin_address=127.0.0.111
+
+bind-address = 0.0.0.0
 
